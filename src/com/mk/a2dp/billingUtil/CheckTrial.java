@@ -43,7 +43,7 @@ public class CheckTrial {
 	
 	static private String StorageFileName = ".30Droid";
 	static private Context appContext = null;
-	final static long TrialSec = 40*86400; // 2 days 172800 sec 604800 for 7 days
+	final static long TrialSec = 7*86400; // 2 days 172800 sec 604800 for 7 days
 	final static boolean isAmazonBuild = false;
 	private static String OperationType = null;
 	
