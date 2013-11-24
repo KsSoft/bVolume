@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+    <title>bVolume Help</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="jquery/jquery.mobile-1.3.2.min.css">
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+    <div data-role="page" id="Manual">
+ 
+        <div data-role="header" data-position="fixed">
+            <h1>Manual</h1>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Menu Buttons</h4>
+                <ul>
+                    <li><strong>Preferences:</strong> Opens the preferences menu to edit preferences. </li>
+                    <li><strong>Delete Data:</strong> deleted the device table allowing you to completely rebuild from scratch. </li>
+                    <li><strong>Manage Data:</strong> opens a screen with commands for importing and exporting the device data. </li>
+                    <li><strong>Exit:</strong> will kill the service and completely exit the program. </li>
+                    <li><strong>Help:</strong> takes you to this website. </li>
+                </ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Main Screen Buttons</h4>
+                <ul><li><strong>Location:</strong> retrieves the last captured location and opens it as a URL.  This is for viewing the last captured location (not for capturing it). </li><li><strong>Find Devices:</strong> scans the Android device for all Bluetooth audio devices and loads them into the database and list. </li><li><strong>Start Service or Stop Service:</strong> this button is used to start or stop the background service task.  This service must be running have any of the features work.  You can stop the service to prevent the features from working temporarily (until you start it again). </li></ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Edit Device Dialog Box</h4>
+                <ul><li><strong>Top text box:</strong> Enter a name you would like for the device such as the name of the car. </li><li><strong>Get Location On Disconnect?:</strong> check to capture location when this device disconnects.  If unchecked location listener and data are not captured for this device. </li><li><strong>Disconnect WIFI when Bluetooth connects:</strong> Check this box if you need to have WIFI automatically disabled when the device you are configuring device connects.  When the device disconnects, the WIFI state will return to its previous state. </li><li><strong>Enable GPS while connected:</strong> Check this box if you want GPS enabled while this device is connected.  When the device disconnects, GPS will stay enabled until the location is captured, then will return to the previous state. </li><li><strong>Silence notifications while connected:</strong> Check this box if you don't want your music interrupted with notifications while driving. </li><li><strong>Enable Reading Text Messages?:</strong> if checked, and you have enabled this in the preferences as well, text messages (SMS) will be read to you via the audio stream while this device is connected. It is also able to read Google Talk messages if you are signed in with your Google Talk app. </li><li><strong>Set Media Volume on connect?:</strong> if checked, the media volume will be adjusted to the slider bar value when a device connects. </li><li><strong>Media Volume slider bar:</strong> is the media volume that will be set when connected to Bluetooth.  Note:  This only raises the volume to the max level supported by the device.  This is not a volume booster app. </li><li><strong>Set Phone Volume on connect?:</strong> if checked, the in-call phone volume will be adjusted to the slider bar value when a device connects. </li><li><strong>Phone Volume slider bar:</strong> is the media volume that will be set when connected to Bluetooth.  Note:  This only raises the volume to the max level supported by the device.  This is not a volume booster app. </li><li><strong>Start app on connect:</strong> If you want another app to launch when the Bluetooth device connects, use the button to select a package name to launch.  Select a package from the list and it will show in the text box below the button.  For instance, entering com.pandora.android in this text box will launch Pandora Radio when the device connects.  Leave this field blank to disable the auto launch for this device.  This feature gives you many other launch features including: create a shortcut, home screen shortcuts, Pandora playlist, and more.  It will make sure the phone was not ringing or on call before launching app.  If a call is active, the app will not automatically launch. </li><li><strong> Force app restart?:</strong> If this is checked it will call the app restart function when launching an app you selected above.  Since Android 2.2 this will only affect background tasks.  It really depends on the app you are starting as to whether it is needed or not.  You will just have to try it both ways to get the desired result.  It will likely have no affect on most apps. </li><li><strong> Stop app on disconnect:</strong> If you check this box bVolume will stop the launched app on disconnect.  While this generally works, some apps (like Pandora) do not play well with others and may sometimes persist.  If you uncheck this box bVolume Volume will still pause the music on disconnect but will not kill the app. </li><li><strong> Also connect to Bluetooth device:</strong> If you want to connect to another paired device, use the button to select that device to connect to.  The device MAC address will show in the test box.  You can clear the text box so it will not also connect to any Bluetooth device.  See the tips wiki for more details. </li><li><strong> Connected Icon:</strong>  This allows you to select an icon for when a device connects. </li><li><strong> Delay for reading text message:</strong>  This is the time delay between notification of a text message (SMS) and the reader actually reading it to you.  This is used to handle your phones notification to prevent the text message from being read until your notification is done. </li><li><strong> SMS Stream:</strong>  A stream is a path for the sound to travel.  The phone and connected Bluetooth equipment will support various streams.  This selection will let you choose which one the text message is read through.  Music Stream will use the stereo A2DP stream.  Voice Call Stream will use the handsfree speakerphone stream.  Alarm Stream will use the path that alarm sounds use.  Each phone and Bluetooth device is a bit different.  Some of these may not work properly with your devices.  You will just have to try each of them to see what works best for your situation.  This stream will also be used for reading Google Talk messages. </li><li><strong> Volume adjust delay:</strong>  This is the time in seconds that bVolume will wait after the first Bluetooth profile connects before the volume is adjusted.  This is used to prevent volume adjustments prior to the A2DP stream being active. </li><li><strong> Automatically remember last used media volume on disconnect:</strong> Check this to have bVolume capture where you left the media volume while the device was connected to use when the device connects again. </li><li><strong> Ramp volume up:</strong>  You can use this to have the volume ramp up rather than just jumping to the connected setting.  The ramp will increment the volume once per second until the selected volume is reached. </li><li><strong>Save:</strong> after making your changes, you must press this to save your changes.  The back key will also save and exit in version 2.8.0 and up. </li></ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Usage - Basic</h4>
+                <p>By default the service is not automatically started when the device boots unless you check the box in preferences to start at boot.  In order for the program to manage the volume or capture location, you must start the service by clicking the "Start Service" button.  The service does automatically start when you launch the application.  The button text will change to "Stop Service" and a message will pop up saying the service has started (unless you configured the pop-ups off in the preferences).  The program is now ready to manage bVolume and capture location. </p>
+                <p>At this point you have not yet created specific settings for any of your devices for specific features.  New Bluetooth devices will be created with the default settings to adjust the media volume to max on Bluetooth connect, and capture your location on Bluetooth disconnect or Car Mode exit (Android 2.2 or newer). </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Usage - Setting up devices</h4>
+                <p>You must use the standard Android Bluetooth manager to find and pair with devices before using this application.  In order to manage device specific settings, click the Find A2DP Devices button.  This will look for all bonded (paired) Bluetooth devices, create a new database table, and load your Bluetooth devices into it.  Bonded devices are all the devices you have ever paired with and stored.  You can click on any device in the list to edit the settings. Click the save button to store your device settings.  The back button will exit the device editor without saving your changes. </p>
+                <p>If you click the Find Devices button after you have already loaded devices any new devices will be added to the database with default settings (set volume on connect, max volume, device name = received name in Android).  Any devices already in the database are unaltered.  Unpaired devices do not get removed during this function.  You can remove a device by short press on the device in the list and then use the delete button. </p>
+                <p>Make sure your Bluetooth is enabled before scanning for devices.  Devices may not be found if Bluetooth is not enabled. </p>
+                <p>If "respond to car mode" is checked in the main preferences, a "Car Dock" device will be added to the device list.  If respond to Home Dock is checked, a "Home Dock" device will be added to the list. If respond to Headset is checked, a "Headset" device will be added to the list. These devices can be configured like any other device in the list.  They are not Bluetooth devices.  Instead, they are modes the Android device can trigger.  This is useful if you want to enjoy all the same features of a Bluetooth device (volume adjust, location capture, etc).  Once you enable these special devices, you need to click the "find devices" button to get them added to your device list. </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Preferences</h4>
+                <p>There are several preferences for the user to set.   </p>
+                <ul><li>Start at Boot.  If you check this box the program will launch the service in the background after the device is done booting up.  This way you don't need to remember to start it every time you restart the device.  <strong>In order for this to work, you must install to the device and not the SD card.</strong> </li><li>Show Pop-ups.  The messages that will not show if you uncheck this include: message when service starts and stops, the countdown timer when the GPS listener is looking for a location, and the message that pops up when your device connects via Bluetooth.  Other messages such as errors or no data are still shown. </li><li>Notify in Foreground.  Actually this does more than just put an icon on the status bar.  It also keeps the service running more often by giving it priority as a foreground service.  By default this is enabled.  Enabling it ensures the service can perform it's function without being stopped by another application when the device is low on memory.  This does not guarantee the service will never get stopped in severe low memory conditions but it makes it far less likely.  Some don't like having the icon in the task bar so I made this a preference.  However, if you disable it the app may not work sometimes. </li><li>Use Local File Storage.  Checking this box will use the device memory to store the device specific location files.  Uncheck it to store these files on the external memory (SD card).  The external memory is preferred if you ever want to copy, send, save or do anything else with these files. </li><li>Respond to Car Mode.  This will create a Car Dock device in the device list (after find devices is used) that will react to the Car Mode connect and disconnect events, similar to a Bluetooth connect/disconnect event. </li><li>Respond to Home Dock.  This will create a Home Dock device in the device list (after find devices is used) that will react to the Home Dock connect and disconnect events, similar to a Bluetooth connect/disconnect event. </li><li>Respond to Headset.  This will create a Headset device in the device list (after find devices is used) that will react to the Headset (stereo jack) connect and disconnect events, similar to a Bluetooth connect/disconnect event. </li><li>Respond to Power Connection. This will create a Power Connection device in the device list (after find devices is used) that will react to the device power connect and disconnect events, similar to a Bluetooth connect/disconnect event.  Power connection refers to plugging the device into a power source to charge the battery. </li><li>Enable Raeding Text Messages.  This will enable the text message (SMS &amp; Google Talk) reader feature.  This feature will read the text message over the audio stream using Google Text To Speech (TTS) services.  You must has a TTS service installed for this to work.  There are several TTS applications on the Android Market for free.  Pico TTS or eSpeak TTS for instance.  When you enable this feature bVolume will test for a TTS service being available and ask you to install one if not.  Enabling this feature here just prepares bVolume to read SMS.  You must also set up the devices you want this feature to work on individually.  For more info on this feature see <a href=#Reading_Sms" rel="nofollow">Reading SMS</a> </li><li>GPS Location Listener Timeout.  This sets the maximum time the location services (all of them) will run looking for a better location fix.  After this time, the location listeners will give up and turn OFF.  This is done for 2 reasons.  The most important reason being that after too long you are not likely near your car anymore.  The other being to conserve the battery. </li><li>GPS Max Inaccuracy.  This is the maximum inaccuracy to accept before turning OFF location listeners.  In most cases set this to the minimum (2 meters).  However, you can set this higher to accept a less accurate fix in exchange for a quicker location capture. </li><li>Use Passive Locations.  Passive locations are locations that are requested by other programs, or locations captured using other methods.  I have found this to be rather unreliable at this point so the default is to keep this OFF.  However, if these improve in the future, or your device has a hard time capturing the location fast enough you may want to try it. </li><li>Use Network Locations.  Network locations include those obtained using the cellular towers and WiFi hotspots.  Some devices don't support satellite GPS so this would be the only method they have of acquiring location.  This should be ON.  Network locations can be captured faster but are generally less accurate than satellite GPS. </li></ul>
+                <p>Note: you must stop and restart the service if you made preference changes while the service was running.  Don't make the changes while connected to a device since some of the changes will not take affect and the connected device will not be detected.  Make preference changes before you have a device connection established. </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Retrieving Location</h4>
+                <p>After your device has disconnected a Bluetooth connection a location will be stored (if you configured it to do so above).  The location will also be captured when Car Mode is exited in Android (where supported).  Now you can click the Location button and see the location that was captured.  It opens as a map URL.  This can be viewed many ways.  Google maps will open and show the link.  You can also use a browser.  I like to use GPS Status (free application on Android Market market://search?q=pname:com.eclipsim.gpsstatus2 ). This gives you flexibility in how you use the captured location data. </p>
+                <p>If you push the Location button prior to ever capturing a location a "no data" message will be shown. This happens because you have no location data file captured yet. </p>
+                <p>There are settings in the preferences menu to set the GPS Listener Timeout and GPS Max Accuracy to Store.  The GPS Listener Timeout is the time after disconnect that it will keep the GPS alive trying to find a better location.  Setting this higher will look longer for a better location but you may not be as close to your car by the time it gets one.  About 20 seconds is recommended for most people.  The GPS Max Accuracy to Store is the distance in meters that it will accept to store the location and then stop the GPS listener.  Setting this smaller will capture a more accurate location but, depending on the time you give it in the previous setting, you may have walked farther from your car.  The GPS listener will stay alive trying to get the best possible location until one of these conditions are met.  About 10m (30 feet) is recommended for most people.  Your can completely disable the GPS listener by setting the timeout to "Disable GPS Listener". </p>
+                <p>Short press of the Location button retrieves the best stored location.  Long press retrieves the most accurate.  This does not matter much anymore since it will launch a GPS listener after disconnect (when configured to do so).  In most cases a new GPS location is captured and this will be both the most recent and the most accurate.  However, if the GPS listener times out, or GPS is not enabled, then you may need to know the most recent and most accurate.  The device name, time/date, and accuracy is displayed in the URL.  If the location was capture from a Car Mode exit, then the URL will have "My Car" instead of the device name. </p>
+                <p>If you have disabled any location services you may not get a decent location in the allotted time.  If you are in a place where a location cannot be determined, your last good location will be captured.  If you have just booted the device, and there is no location information at all, nothing is stored.  You will see the last location that you stored if you press the "stored location" button.  Always look at the date, time, car, and accuracy of the location to determine it's validity. </p>
+                <p>Long press of a device in the list will open a dialog showing details about that device.  It also has a button called Location.  Clicking that button will open up the last captured location file for that specific device.  If the file has not been created, a file not found error will show.  This way you don't lose the location of any device because a new device connected later.  The file opens in a browser and shows details about the location data.  It also has hyperlinks to open the location data in your favorite app that accepts location data (such as maps or GPS Status). </p>
+                <p>For convenience, you can use the bVolume Widget.  Place the widget on your home screen.  A single click of the widget will show the last captured location. </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Accessibility Service (read out notifications)</h4>
+                <p>This feature uses Android accessibility service to read out notifications from many apps while you are connected to a device.  The apps include Gmail, Hangouts, Skype, K9 Mail, Android and Motorola email clients, and Google Keep reminders.  This list may change in the future.  I may also add a feature to have the user select from installed apps in the future. </p>
+                <p>Since this feature utilized the accessibility framework within Android, you must enable bVolume in the accessibility settings menu in the Android settings.  Disabling this feature is done in the same menu by turning OFF bVolume. </p>
+                <p>When a notification comes in, and you have connected to a device (bVolume shows connected) the text that is briefly shown in the notification bar will be read to you.  The text that is shown varies by app.   </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Database</h4>
+                <p>There is a utility in the options menu to export the database to the SD card as XML or SQLite database.  I found this in an example and decided to implement it.  There is an import feature as well.  This assumes that you exported earlier and it looks in the export directory defined int he application for the file name also defined by the application.  It can only import a SQLite database that was created by the application.   </p>
+                <p>If you just want to start over, you can delete the entire database using the Delete Data in the options menu. </p>
+                <p>Devices in the list on the main screen can be edited or deleted using a short press on the device name. </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Service</h4>
+                <p>The service is the part of the program that runs in the background and responds to Bluetooth connect and disconnect events.  When the service is running the old media volume will be captured and the media volume will be adjusted on Bluetooth connect based on the device that connected and your settings for that device.  On disconnect the media volume will be restored and the location will be captured.  If the service is not running, none of this will happen.  There is a button on the main screen to start and stop the service.  If the button says "Start Service" then the service is not currently running.  If the button says "Stop Service" then the service is currently running.  If you configured your preferences to start at boot then the service automatically starts when the phone is finished booting up. </p>
+                <p>Android manages it's memory by closing applications that are not currently being viewed by the user.  This can kill the service too.  If you see a notification that the service has started when you did not just start the service, this is what happened.  In order to prevent this, select the "Notify in Foreground".  This will place an icon on the status bar which makes the service act as an active task.  This prevents the other processes from stopping it in most cases.  It is still possible in extreme cases that the service could get stopped.  By default this is disabled in the preferences.  </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Widget</h4>
+                <p>The widget can be used as a shortcut to view the last stored location.  In order to place the widget on the home screen, do the following: </p>
+                <ol><li>Find a blank place on a home screen (can be any of the home screens) and long press. </li><li>A list of widgets is displayed.  On some devices you may have a few categories of widgets.  Select "Android Widgets" if you have more that one. </li><li>Select "bVolume" widget.  The widget will now be placed where you long pressed. </li></ol>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Caveats</h4>
+                <ul>
+                    <li>Long press of a Bluetooth device in the list will show a pop-up window of the details of that device.  There is also a button for the devices last captured location. </li>
+                    <li>Car Mode is supported in Android 2.2 and higher.  This is generally triggered by an application that is preinstalled in your device, but other applications on Android Market will also enter and exit Car Mode. For instance, on the original Droid the application is called "Car Home".   </li>
+                    <li>Droid 2 Car Dock does not trigger Car Mode for some strange reason. You can get other Car Mode applications in the Android market that do trigger Car Mode.  </li>
+                    <li>If you want to trigger a location capture manually, just open and close your Car Mode application. </li>
+                    <li>If the application is killed with a task killer application, the features will not work correctly.  You may not capture a location on disconnect, the volume may be left at the connected setting, etc.  Make sure you add it to the ignore list in your task killer. </li>
+                    <li>The device specific location data is stored in html files.  You can use a file explorer such as ES File Explorer to locate these files. Prior to version 2.0.5 they were stored in a directory called A2DPVol.  Long press the file you are interested in and it will give you the option to create a desktop shortcut for it.  Now anytime you want to see the last stored location of that device, you can just click this icon from the desktop. </li>
+                    <li>Be careful when using the Bluetooth device connect feature.  Make sure you have that device configured properly to prevent any circular loops. For instance, don't have device 1 connect to device 2, and device 2 connect to device 1.  This may cause an infinite loop.  If this happens, get the device out of range so it cannot connect to any Bluetooth devices and reconfigure the devices in bVolume. </li>
+                    <li>When using the Bluetooth device connect feature the first device (usually home dock or car dock but can also be a Bluetooth device) will connect, then drive the connection of the A2DP device.  When that A2DP device connects, it will also trigger a connect in bVolume.  Because of this, configure the A2DP device with the volume adjustment and app launch features (is desired).  If you configure the first device, the 2nd device may override the changes from the 1st device.  Also, the volume will likely get left at max even after disconnect. </li>
+                    <li>The start app on connect feature can start apps but Froyo removed the ability to stop apps that are in the foreground.  bVolume tries to kill it (if you select the "stop app on disconnect" checkbox) using both the apprestart function and the killbackgrundprocess function but if the app is in the foreground these functions will be ignored by Android.  Also, shortcuts or anything that does not have a package cannot be stopped by bVolume once started. </li>
+                    <li>If you have your Bluetooth disabled and a device connects that is using the feature to force connect a Bluetooth device, the Bluetooth will automatically be enabled to allow the connection.  When the first device disconnects, the Bluetooth will be returned to the state it was before connection.  A use case for this is when you have a physical car dock and you force connect a Bluetooth A2DP receiver.  When you put your phone in the car dock your Bluetooth will auto-enable to allow the force connect.  When you remove your phone from the car dock, Bluetooth will return to disabled. </li>
+                </ul>
+
+            </div>
+        </div><!-- /content -->
+ 
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+		        <ul>
+			        <li><a href="#Tips">Tips</a></li>
+			        <li><a href="#Reading_Sms">Reading SMS</a></li>
+		        </ul>
+	        </div>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+
+    <div data-role="page" id="Tips">
+ 
+        <div data-role="header" data-position="fixed">
+            <h1>Tips</h1>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>My music won't start playing when commended from Bluetooth device</h4>
+                <p>I ran into this issue myself.  I use 2 different music players: Google Play and Amazon.  Amazon does not know what to do if you have not played something since boot.  It just sits there.  Very frustrating when using the car system.  The Amazon player is actually a bit crappy but I like using their cloud and I like purchasing from them.  Google Play creates an "instant mix" if you command play from a Bluetooth device but have not yet selected anything to play.  This is much nicer.  The way I fixed this issue it I have bVolume auto start Google Play Music.  I don't have it start a play list but rather just have it start.  It won't start playing by itself but since it is now in the foreground it sits ready to play your last play list or instant mix when you command play from the Bluetooth device.  You can of course also commend a play list to start but I just don't like to use that functionality since it will always start it from the beginning. </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>My music stutters when playing over Bluetooth</h4>
+                <p>This is a known issue in Android that this app corrects.  Use the "disable WiFi on connect" feature in bVolume.  This is a check box in the edit device screen.  Short click the device in the main screen of bVolume to see the edit device screen.  Make sure the disable WiFi on connect box is checked.  Scroll to the bottom and click save. </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>My Bluetooth music device won't connect when I connect to my car hands free</h4>
+                <p>bVolume has a feature to auto connect another Bluetooth device when the first device connects.  This can be used in several ways. </p>
+                <ul><li>When you use a home dock, car dock, or audio jack you can force connect a Bluetooth device.  The common use case is for car dock.  When you dock your mobile device in a car dock you want to also connect an A2DP receiver.  Use bVolume to respond to car dock (see preferences).  This will add it to the device list.  Now edit the car dock device and use the also connect Bluetooth device to connect to your receiver.  </li><li>You have a Bluetooth device that supports hands free and A2DP but it does not automatically connect to A2DP.  This has been an issue with some devices.  In this case use bVolume to also connect back to the same device.  When the hands free profile connects, it will force connect A2DP. </li></ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>bVolume does not always work</h4>
+                <p>This can happen for several reasons.   </p>
+                <ul><li>If you allow automatic upgrading the app will not restart after the upgrade.  You can fix this by disabling automatic upgrading in Android Market.  Android Market will still notify you that upgrades are available. </li><li>If your device is running low on RAM it will close background apps to free up space.  To help reduce the likelihood of this, use the notify in foreground feature in bVolume.  This will place the icon on the notification bar in Android and keep the app as a foreground app.  Some don't like the icon so I made this configurable but if you choose to not use the icon, you risk the app being killed on you.   </li><li>If you do not auto start bVolume it won't be running when you forget to manually start it.  Always use the start at boot feature to prevent this problem.  Make sure you always install to the internal memory and NOT the SD card. </li><li>If you leave the preferences menu open in bVolume.  When you open the preferences menu it stops the background service.  This is done because the service will need to load the new preferences once you are done editing them.  Anytime you edit the preferences, also use the back key to save them and restart the service.  Don't navigate away from the preferences screen without using the back key. </li></ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>FileNotFound error and no location capture</h4>
+                <p>This happens if the device name contains characters that are not legal in file names.  For instance: "/", "\", or ":".  Rename the device eliminating all of these characters. The illegal names are now renamed automatically. </p>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>bVolume does not start at boot</h4>
+                <ul><li>Make sure you have the "start at boot" checked in the preferences. </li><li>Make sure you install to the device memory and NOT the SD card.  The SD card is often not mounted until after boot.  Apps on the SD card cannot auto start because of this. I could do like most and just force you to install to local memory but I prefer to give the users freedoms. </li><li>If the app is upgraded, it will not restart by itself.  The next time you boot the device it will work fine. </li></ul>
+            </div>
+
+        </div><!-- /content -->
+ 
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+		        <ul>
+			        <li data-theme="b"><a href="#Manual">Manual</a></li>
+			        <li><a href="#Reading_Sms">Reading SMS</a></li>
+		        </ul>
+	        </div>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+
+    <div data-role="page" id="Reading_Sms">
+ 
+        <div data-role="header" data-position="fixed">
+            <h1>Reading SMS</h1>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>bVolume and TTS</h4>
+                <p>bVolume can use any text-to-speech (TTS) engine for reading text messages (SMS) and Google Talk messages.  This requires several things to work: </p>
+                <ol><li>You must have a TTS engine installed.  Some common ones are Pico and eSpeak.  I use Pico and have good results. </li><li>That TTS engine must be initialized and have downloaded the latest speech data.  This happens automatically in most cases.  You can test for this in Android by going to <tt>[menu button]</tt> then <tt>[voice input and output settings]</tt>.  Click on text-to-speech settings.  At the top click <tt>[listen to example]</tt>.  If this does not work, bVolume wont either. </li><li>You must have a default TTS engine selected.  If you have more than one TTS engine installed, and you don't have a default selected, it will pop up a dialog asking you for which one to use rather than actually reading anything. </li><li>You must enable reading text messages in bVolume.  This is done by checking this box in the preferences in bVolume. </li><li>You must ALSO select read text messages for each device.  This is done by selecting the device in the list and clicking edit in the popup dialog. </li><li>You must select a valid stream.  This is done at the bottom of the preferences menu.  It is called SMS stream.  Depending on your devices, some may not work at all so you will need to try all 3 until you find the one that works best.  You can select the stream in the edit device screen.  Click a device in your list and then click edit when the dialog pops up. </li><li>In the devices you would like TTS to read messages, you need to enable it in the edit device screen.  Make sure you save when done editing!  The save button is at the bottom of this screen. </li></ol>
+                <ul><li>Note: You must have TTS enabled in BOTH the preferences and EACH of the devices you want to read text messages while connected. </li></ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>If it still does not work</h4>
+                <ul><li>Reboot your device. </li><li>If you use Handscent: Handscent =&gt; Settings =&gt; Application Settings =&gt; Default Messaging Application = Disable.  See comment below.  If you have other apps installed that intercept SMS they may have a similar issue. </li><li>Make sure you are watching the Android device screen while trying to read the first text.  If any dialogs pop up, make sure you select a default before clicking OK.    It is common for more than one TTS engine to be installed on your device and if a default is not selected, it will just sit and wait until you select one.  Obviously, don't try this while driving!  Make sure you get it working before you drive anywhere. </li><li>Make sure you have a default TTS engine selected and working. </li><li>Go into <tt>[manage applications]</tt> in Android.  Select your TTS engines and clear defaults.  Then test the TTS engine again as described above.  You will need to select a default again. </li><li>Different devices work with different streams.  Try each of the TTS streams to see which one if any work for you.  This is a configuration in each device in bVolume. Generally A2DP devices use the music stream.  If your device also supports hands free calling you can use the voice call stream.  Try each one.  Make sure to stop and restart the service when you change this configuration.  </li><li>If all else fails, uninstall and reinstall bVolume </li></ul>
+            </div>
+
+            <div data-role="collapsible" data-theme="b" data-content-theme="d">
+                <h4>Known working configurations</h4>
+                <ul>
+                    <li>Droid 3 (Android 2.3.4) with Motorola T605 car kit: Use the Pico TTS engine with any of the 3 streams.  Voice call stream uses the Bluetooth hands free stream (mono).  Music stream will send to the stereo output.  Alarm stream will use the phones speaker. </li>
+                    <li>Droid 2 (Android 2.3.3) with Motorola T605 car kit: Use the Pico TTS engine with any of the 3 streams.  Voice call stream uses the Bluetooth hands free stream (mono).  Music stream will send to the stereo output.  Alarm stream will use the phones speaker. </li>
+                    <li>Droid X (Android 2.2) with Motorola T605 car kit: Use the Pico TTS engine with any of the 3 streams.  Voice call stream uses the Bluetooth hands free stream (mono).  Music stream will send to the stereo output.  Alarm stream will use the phones speaker. </li>
+                    <li>Motorola Xoom WiFi (Android 4.1) with Motorola T605 car kit: There are some issues with Jelly Bean overall though.  Media stream only. </li>
+                    <li>Droid Bionic (Android 2.3.3 and 4.04) with Motorola T605 car kit: Use the Pico TTS engine with any of the 3 streams.  Voice call stream uses the Bluetooth hands free stream (mono).  Music stream will send to the stereo output.  Alarm stream will use the phones speaker. </li>
+                </ul>
+            </div>
+
+        </div><!-- /content -->
+ 
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+		        <ul>
+			        <li><a href="#Manual">Manual</a></li>
+			        <li><a href="#Tips">Tips</a></li>
+		        </ul>
+	        </div>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+</body>
+</html>

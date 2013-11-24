@@ -139,8 +139,10 @@ public class main extends Activity {
 			return true;
 
 		case R.id.help: // launches help website
-			String st = "http://code.google.com/p/a2dpvolume/wiki/Manual";
-			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(st)));
+			/*String st = "http://code.google.com/p/a2dpvolume/wiki/Manual";
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(st)));*/
+			Intent intent = new Intent(getBaseContext(), Help.class);
+		    startActivity(intent);
 			return true;
 		}
 		return false;

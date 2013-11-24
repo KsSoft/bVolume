@@ -8,5 +8,5 @@
 <item android:orderInCategory="4" android:menuCategory="container" android:enabled="true" android:visible="true" android:id="@+id/Exit" android:title="@string/MenuExit"></item>
 
 
-<item android:enabled="false" android:visible="false" android:menuCategory="container" android:id="@+id/help" android:orderInCategory="5" android:title="@string/MenuHelp"></item>
+<item android:enabled="true" android:visible="true" android:menuCategory="container" android:id="@+id/help" android:orderInCategory="5" android:title="@string/MenuHelp"></item>
 </menu>

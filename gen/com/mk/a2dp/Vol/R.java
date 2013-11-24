@@ -28,17 +28,17 @@ public final class R {
     }
     public static final class id {
         public static final int Button01=0x7f08003d;
-        public static final int DelData=0x7f08004c;
+        public static final int DelData=0x7f08004d;
         public static final int EditDevCancelbutton=0x7f080038;
         public static final int EditDevSavebutton=0x7f080039;
-        public static final int Exit=0x7f08004e;
+        public static final int Exit=0x7f08004f;
         public static final int ExportLoc=0x7f080045;
         public static final int ImportDBButton=0x7f080044;
         public static final int LinearLayout1=0x7f080016;
         public static final int LinearLayout2=0x7f080024;
         public static final int ListView01=0x7f08003f;
         public static final int Locationbtn=0x7f08003c;
-        public static final int Manage_data=0x7f08004d;
+        public static final int Manage_data=0x7f08004e;
         public static final int Output=0x7f080048;
         public static final int Path=0x7f080046;
         public static final int SMSdelayseekBar=0x7f080018;
@@ -51,7 +51,7 @@ public final class R {
         public static final int TextView01=0x7f080047;
         public static final int VolDelaySeekBar=0x7f080026;
         public static final int VolDelayTextView=0x7f080025;
-        public static final int WidgetButton=0x7f08004a;
+        public static final int WidgetButton=0x7f08004b;
         public static final int appKillCheckbox=0x7f08002d;
         public static final int appRestartCheckbox=0x7f08002c;
         public static final int autoVolcheckBox=0x7f080021;
@@ -74,7 +74,7 @@ public final class R {
         public static final int enableTTSBox=0x7f080014;
         public static final int exportdbtosdbutton=0x7f080041;
         public static final int exportdbxmltosdbutton=0x7f080042;
-        public static final int help=0x7f08004f;
+        public static final int help=0x7f080050;
         public static final int iconradio0=0x7f080032;
         public static final int iconradio1=0x7f080033;
         public static final int iconradio2=0x7f080034;
@@ -87,7 +87,7 @@ public final class R {
         public static final int m_lv_packages=0x7f080003;
         public static final int pi_iv_icon=0x7f080004;
         public static final int pi_tv_name=0x7f080005;
-        public static final int prefs=0x7f08004b;
+        public static final int prefs=0x7f08004c;
         public static final int psi_tv_station_name=0x7f080049;
         public static final int radioGroupIcon=0x7f080031;
         public static final int radioGroupStream=0x7f08001a;
@@ -107,6 +107,7 @@ public final class R {
         public static final int textViewMediaVolume=0x7f08001f;
         public static final int textViewStream=0x7f080019;
         public static final int textViewTTSDelay=0x7f080015;
+        public static final int webView1=0x7f08004a;
     }
     public static final class layout {
         public static final int app_list=0x7f030000;
@@ -117,7 +118,8 @@ public final class R {
         public static final int managedata=0x7f030005;
         public static final int pandora_station_item=0x7f030006;
         public static final int pandora_station_list=0x7f030007;
-        public static final int widgetlayout=0x7f030008;
+        public static final int webview=0x7f030008;
+        public static final int widgetlayout=0x7f030009;
     }
     public static final class menu {
         public static final int menu=0x7f070000;
