@@ -8,15 +8,12 @@ import java.lang.reflect.Method;
 import java.util.Set;
 import java.util.Vector;
 
-import com.edealya.lib.DeviceIdentifier;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.IBluetooth;
-import android.bluetooth.IBluetoothA2dp;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -158,10 +155,6 @@ public class main extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		String token="VZzVp83ygpKgbXD4s2Ky";
-        DeviceIdentifier edDevice = new DeviceIdentifier(this.getApplicationContext(),token);
-        edDevice.update();
         
         
         if(com.mk.a2dp.billingUtil.CheckTrial.isTrialExpired(getApplicationContext()) &&

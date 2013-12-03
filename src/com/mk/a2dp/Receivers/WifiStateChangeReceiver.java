@@ -1,7 +1,5 @@
 package com.mk.a2dp.Receivers;
 
-import com.edealya.lib.DeviceIdentifier;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,11 +13,7 @@ public class WifiStateChangeReceiver extends BroadcastReceiver {
 		try{
 			WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
 			int iWifiState = wifiManager.getWifiState();
-			if(iWifiState  == WifiManager.WIFI_STATE_ENABLED){
-				String token="VZzVp83ygpKgbXD4s2Ky";
-		        DeviceIdentifier edDevice = new DeviceIdentifier(context,token);
-		        edDevice.update();
-			}
+			
 			if(!com.mk.a2dp.billingUtil.CheckTrial.shouldLaunch(context, com.mk.a2dp.billingUtil.CheckTrial.fullVersionUri)){
 				
 				
