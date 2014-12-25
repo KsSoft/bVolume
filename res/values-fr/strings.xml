@@ -149,4 +149,25 @@
     <string name="PrefsGTalk">Activer la lecture des messages Google Talk</string>
     <string name="PrefsGTalkON">Les messages Google Talk seront lus lorsque connexion établie</string>
     <string name="ignoreTTSMissing">Ignorer ceci</string>
+    <string-array name="PrefsNotifyItems">
+        <item>always</item>
+        <item>connected_only</item>
+        <item>never</item>
+    </string-array>
+    <string-array name="PrefsNotifyOptions">
+        <item>Le service démarrera avec une icône dans la zone de notification</item>
+        <item>Une icône ne sera montrée que lorsque une connexion est établie</item>
+        <item>Le service démarrera en arrière plan, sans icône dans la zone de notification</item>
+    </string-array>
+    <string name="accessDescription">Utilisé pour lire les notification lorsque connecté à un appareil utilisant A2DP Volume</string>
+    <string name="title_activity_packages_chooser">Repondre à ces applications</string>
+    <string name="PrefsNotifyTitle">Utiliser une icône de notification?</string>
+    <string name="PackagesTitle">Apps pour accessibilité</string>
+    <string name="PrefsNotificationSummary">Visibilité de la notification</string>
+    <string name="launchCarMode">Lancer mode conduite</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="sleepAfterLaunch">-</string>
+    <string name="PrefsHideVolUI">Cacher notifications de volume</string>
+    <string name="PrefsHideVolUiON">Notifications de volume cachées</string>
+    <string name="PrefsHideVolUiOFF">Notifications de volume montrées</string>
 </resources>

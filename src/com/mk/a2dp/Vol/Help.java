@@ -10,7 +10,7 @@ public class Help extends Activity {
  
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.webview);
+		setContentView(R.layout.web_view);
  
 		webView = (WebView) findViewById(R.id.webView1);
 		webView.getSettings().setJavaScriptEnabled(true);

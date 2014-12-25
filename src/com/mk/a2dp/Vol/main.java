@@ -14,6 +14,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.IBluetooth;
+import android.bluetooth.IBluetoothA2dp;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -23,6 +24,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.media.AudioManager;
@@ -103,6 +105,11 @@ public class main extends Activity {
 		case R.id.Exit:
 			stopService(new Intent(com.mk.a2dp.Vol.main.this, service.class));
 			com.mk.a2dp.Vol.main.this.finish();
+			return true;
+
+		case R.id.packages:
+			Intent p = new Intent(com.mk.a2dp.Vol.main.this, PackagesChooser.class);
+			startActivity(p);
 			return true;
 
 		case R.id.prefs: // set preferences
@@ -365,11 +372,20 @@ public class main extends Activity {
 
 								Uri uri = Uri.parse(st);
 								Intent intent = new Intent();
-								intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-								intent.setAction(android.content.Intent.ACTION_VIEW);
-								intent.setDataAndType(uri, "text");
+								//intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+								intent.setAction(Intent.ACTION_VIEW);
+								intent.setDataAndType(uri, "text/html");
+								try {
+									PackageInfo pi = getPackageManager().getPackageInfo("com.android.chrome", 0);
+									intent.setClassName("com.android.chrome",
+	                                        "com.google.android.apps.chrome.Main");
+								} catch (NameNotFoundException e1) {
 								intent.setClassName("com.android.browser",
 										"com.android.browser.BrowserActivity");
+									e1.printStackTrace();
+								}
+								
+								
 								try {
 									startActivity(intent);
 								} catch (Exception e) {
@@ -387,8 +403,6 @@ public class main extends Activity {
 			}
 		});
 		
-		
-
 		// display the selected item and allow editing
 		lvl.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -593,8 +607,11 @@ public class main extends Activity {
 			fs.read(buff);
 			fs.close();
 			String st = new String(buff).trim();
-			Toast.makeText(com.mk.a2dp.Vol.main.this, st, Toast.LENGTH_LONG).show();
-			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(st)));
+			//Toast.makeText(a2dp.Vol.main.this, st, Toast.LENGTH_LONG).show();
+			//startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(st)));
+			Intent i = new Intent(Intent.ACTION_VIEW);
+			i.setData(Uri.parse(st));
+			startActivity(i);
 		} catch (FileNotFoundException e) {
 			Toast.makeText(com.mk.a2dp.Vol.main.this, R.string.NoData,
 					Toast.LENGTH_LONG).show();
