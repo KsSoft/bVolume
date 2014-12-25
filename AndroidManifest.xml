@@ -32,32 +32,31 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
-        android:name="com.mk.a2dp.Vol.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:description="@string/accessDescription"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:persistent="true" >
         <activity
-                   android:name="com.mk.a2dp.Vol.main"
-
-android:description="@string/accessDescription"
+            android:name=".main"
+			android:description="@string/accessDescription"
             android:icon="@drawable/icon5"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:multiprocess="false" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -66,13 +65,13 @@ android:description="@string/accessDescription"
             android:theme="@android:style/Theme.NoTitleBar" />
 
         <service
-            android:name="com.mk.a2dp.Vol.service"
+            android:name=".service"
             android:enabled="true"
             android:label="@string/app_name" >
         </service>
 
         <activity
-            android:name="com.mk.a2dp.Vol.ManageData"
+            android:name=".ManageData"
             android:enabled="true"
             android:finishOnTaskLaunch="false"
             android:icon="@drawable/icon5"
@@ -80,13 +79,13 @@ android:description="@string/accessDescription"
             android:launchMode="singleTop"
             android:multiprocess="false" />
         <activity
-            android:name="com.mk.a2dp.Vol.Preferences"
+            android:name=".Preferences"
             android:enabled="true"
             android:icon="@drawable/icon5"
             android:label="@xml/preferences"
             android:launchMode="singleInstance" />
 
-        <receiver android:name="com.mk.a2dp.Vol.Starter" >
+        <receiver android:name=".Starter" >
             <intent-filter>
                 <category android:name="android.intent.category.HOME" />
 
@@ -95,7 +94,7 @@ android:description="@string/accessDescription"
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.mk.a2dp.Vol.Widget"
+            android:name=".Widget"
             android:icon="@drawable/car2"
             android:label="@string/app_name" >
             <meta-data
@@ -108,7 +107,7 @@ android:description="@string/accessDescription"
         </receiver>
 
         <service
-            android:name="com.mk.a2dp.Vol.ALauncher"
+            android:name=".ALauncher"
             android:enabled="true"
             android:label="@string/app_name" />
 
@@ -117,7 +116,7 @@ android:description="@string/accessDescription"
         <activity android:name="com.mk.a2dp.Vol.CustomIntentMaker" />
         <activity android:name="com.mk.a2dp.Vol.ProviderList" />
 
-        <service android:name="com.mk.a2dp.Vol.StoreLoc" />
+        <service android:name=".StoreLoc" />
         <service
             android:name="com.mk.a2dp.Vol.Access"
             android:enabled="true"
@@ -131,8 +130,9 @@ android:description="@string/accessDescription"
                 android:resource="@xml/accessconfig" />
         </service>
             <activity
-            android:name="com.mk.a2dp.Vol.PackagesChooser"
-            android:label="@string/title_activity_packages_chooser" android:parentActivityName="com.mk.a2dp.Vol.main">
+            android:name="c.PackagesChooser"
+            android:label="@string/title_activity_packages_chooser" 
+            android:parentActivityName="com.mk.a2dp.Vol.main">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.mk.a2dp.Vol.main" />

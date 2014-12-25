@@ -28,8 +28,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.Patterns;
 
-import com.mk.a2dp.Vol.MyApplication;
 import com.mk.a2dp.Vol.R;
+import com.mk.a2dp.Vol.main;
 
 import dalvik.system.PathClassLoader;
 
@@ -533,7 +533,7 @@ public class CheckTrial {
 		{
 			//String logText = (String) getApplicationContext().getText(R.string.select_trial_expired_body);
 			Notification notification = new Notification(R.drawable.notification_error_icon, appContext.getString(R.string.iPlay_Audio_Trial_Expired), System.currentTimeMillis());
-			Intent notificationIntent = new Intent(appContext, MyApplication.class);
+			Intent notificationIntent = new Intent(appContext, main.class);
 			
 			//notificationIntent.putExtra(SendBugReportUiActivity.CRASH_REPORT_TEXT, logText);
 			
