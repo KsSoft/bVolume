@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import java.lang.reflect.Method;
 import java.net.URISyntaxException;
@@ -313,7 +313,7 @@ public class EditDevice extends Activity {
 				java.util.Arrays.sort(ls2); // sort the array
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
-						com.mk.a2dp.Vol.EditDevice.this);
+						com.mk.a2dp.Volume.EditDevice.this);
 				builder.setTitle("Pick a package");
 				builder.setItems(ls2, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int item) {
@@ -333,7 +333,7 @@ public class EditDevice extends Activity {
 			public void onClick(View arg0) {
 
 				AlertDialog.Builder adb2 = new AlertDialog.Builder(
-						com.mk.a2dp.Vol.EditDevice.this);
+						com.mk.a2dp.Volume.EditDevice.this);
 				adb2.setTitle(R.string.ea_ti_app);
 				adb2.setItems(APP_TYPE_OPTIONS, mAppTypeDialogOnClick);
 				adb2.create();
@@ -367,7 +367,7 @@ public class EditDevice extends Activity {
 				lstring[vec.size()] = "none";
 
 				AlertDialog.Builder builder = new AlertDialog.Builder(
-						com.mk.a2dp.Vol.EditDevice.this);
+						com.mk.a2dp.Volume.EditDevice.this);
 				builder.setTitle("Bluetooth Device");
 				builder.setItems(lstring,
 						new DialogInterface.OnClickListener() {
@@ -540,7 +540,7 @@ public class EditDevice extends Activity {
 		try {
 			myDB.update(device);
 			// Reload the device list in the main page
-			final String Ireload = "com.mk.a2dp.Vol.main.RELOAD_LIST";
+			final String Ireload = "com.mk.a2dp.Volume.main.RELOAD_LIST";
 			Intent itent = new Intent();
 			itent.setAction(Ireload);
 			itent.putExtra("device", "");

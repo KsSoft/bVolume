@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -288,7 +288,7 @@ public class StoreLoc extends Service {
 				String temp = "http://maps.google.com/maps?q=" + urlStr;
 				fos.write(temp.getBytes());
 				fos.close();
-				// Toast.makeText(com.mk.a2dp.Vol.service.this, temp,
+				// Toast.makeText(com.mk.a2dp.Volume.service.this, temp,
 				// Toast.LENGTH_LONG).show();
 			} catch (FileNotFoundException e) {
 				Toast.makeText(application, "FileNotFound", Toast.LENGTH_LONG)
@@ -323,7 +323,7 @@ public class StoreLoc extends Service {
 				String temp = "http://maps.google.com/maps?q=" + urlStr;
 				fos.write(temp.getBytes());
 				fos.close();
-				// Toast.makeText(com.mk.a2dp.Vol.service.this, temp,
+				// Toast.makeText(com.mk.a2dp.Volume.service.this, temp,
 				// Toast.LENGTH_LONG).show();
 			} catch (FileNotFoundException e) {
 				Toast.makeText(application, "FileNotFound", Toast.LENGTH_LONG)

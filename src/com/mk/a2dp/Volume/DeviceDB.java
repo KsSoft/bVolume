@@ -2,7 +2,7 @@
  * http://www.screaming-penguin.com/node/7742
  */
 
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import android.content.ContentValues;
 import android.content.Context;

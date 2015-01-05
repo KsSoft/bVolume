@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import java.lang.reflect.Method;
 import java.net.URISyntaxException;
@@ -467,7 +467,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 						e.printStackTrace();
 					}
 				}
-				String Ireload = "com.mk.a2dp.Vol.main.RELOAD_LIST";
+				String Ireload = "com.mk.a2dp.Volume.main.RELOAD_LIST";
 				Intent itent = new Intent();
 				itent.setAction(Ireload);
 				itent.putExtra("disconnect", mac);
@@ -705,7 +705,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 					"android.provider.Telephony.SMS_RECEIVED"));
 		}
 
-		String Ireload = "com.mk.a2dp.Vol.main.RELOAD_LIST";
+		String Ireload = "com.mk.a2dp.Volume.main.RELOAD_LIST";
 		Intent itent = new Intent();
 		itent.setAction(Ireload);
 		itent.putExtra("connect", bt2.getMac());
@@ -932,7 +932,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 
 		// start the location capture service
 		if (bt2 != null && bt2.isGetLoc()) {
-			Intent dolock = new Intent(com.mk.a2dp.Vol.service.this, StoreLoc.class);
+			Intent dolock = new Intent(com.mk.a2dp.Volume.service.this, StoreLoc.class);
 			dolock.putExtra("device", bt2.getMac());
 			try {
 				startService(dolock);
@@ -1012,7 +1012,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 			set_car_mode(false);
 		}
 
-		final String Ireload = "com.mk.a2dp.Vol.main.RELOAD_LIST";
+		final String Ireload = "com.mk.a2dp.Volume.main.RELOAD_LIST";
 		Intent itent = new Intent();
 		itent.setAction(Ireload);
 		itent.putExtra("disconnect", bt2.getMac());
@@ -1547,7 +1547,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 
 				}
 				// mTts.setPitch(2);
-				am2.requestAudioFocus(com.mk.a2dp.Vol.service.this,
+				am2.requestAudioFocus(com.mk.a2dp.Volume.service.this,
 						AudioManager.STREAM_VOICE_CALL,
 						AudioManager.AUDIOFOCUS_GAIN);
 				myHash.put(TextToSpeech.Engine.KEY_PARAM_STREAM,
@@ -1556,7 +1556,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 				break;
 
 			case MUSIC_STREAM:
-				am2.requestAudioFocus(com.mk.a2dp.Vol.service.this,
+				am2.requestAudioFocus(com.mk.a2dp.Volume.service.this,
 						AudioManager.STREAM_MUSIC,
 						AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 				myHash.put(TextToSpeech.Engine.KEY_PARAM_STREAM,
@@ -1564,7 +1564,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 				clearedTts = false;
 				break;
 			case ALARM_STREAM:
-				am2.requestAudioFocus(com.mk.a2dp.Vol.service.this,
+				am2.requestAudioFocus(com.mk.a2dp.Volume.service.this,
 						AudioManager.STREAM_ALARM,
 						AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 				myHash.put(TextToSpeech.Engine.KEY_PARAM_STREAM,
@@ -1639,11 +1639,11 @@ public class service extends Service implements OnAudioFocusChangeListener {
 						c.setAction("com.mk.a2dp.vol.service.CLEAR");
 						application.sendBroadcast(c);
 					}
-					result = am2.abandonAudioFocus(com.mk.a2dp.Vol.service.this);
+					result = am2.abandonAudioFocus(com.mk.a2dp.Volume.service.this);
 
 					break;
 				case MUSIC_STREAM:
-					result = am2.abandonAudioFocus(com.mk.a2dp.Vol.service.this);
+					result = am2.abandonAudioFocus(com.mk.a2dp.Volume.service.this);
 					break;
 				case ALARM_STREAM:
 					if (!clearedTts) {
@@ -1652,17 +1652,17 @@ public class service extends Service implements OnAudioFocusChangeListener {
 						c.setAction("com.mk.a2dp.vol.service.CLEAR");
 						application.sendBroadcast(c);
 					}
-					result = am2.abandonAudioFocus(com.mk.a2dp.Vol.service.this);
+					result = am2.abandonAudioFocus(com.mk.a2dp.Volume.service.this);
 					break;
 				}
 
 				if (result == AudioManager.AUDIOFOCUS_REQUEST_FAILED) {
-					result = am2.abandonAudioFocus(com.mk.a2dp.Vol.service.this);
+					result = am2.abandonAudioFocus(com.mk.a2dp.Volume.service.this);
 				}
 				am2.setMode(AudioManager.MODE_NORMAL);
 			}
 			if (FIX_STREAM.equalsIgnoreCase(uttId)) {
-				result = am2.abandonAudioFocus(com.mk.a2dp.Vol.service.this);
+				result = am2.abandonAudioFocus(com.mk.a2dp.Volume.service.this);
 			}
 			/*
 			 * if (musicWasPlaying) {
@@ -1779,7 +1779,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 				HashMap<String, String> myHash2 = new HashMap<String, String>();
 
 				myHash2.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, FIX_STREAM);
-				am2.requestAudioFocus(com.mk.a2dp.Vol.service.this, AudioManager.STREAM_MUSIC,
+				am2.requestAudioFocus(com.mk.a2dp.Volume.service.this, AudioManager.STREAM_MUSIC,
 						AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 				myHash2.put(TextToSpeech.Engine.KEY_PARAM_STREAM,
 						String.valueOf(AudioManager.STREAM_MUSIC));
@@ -1792,7 +1792,7 @@ public class service extends Service implements OnAudioFocusChangeListener {
 						e.printStackTrace();
 					}
 				}
-				am2.abandonAudioFocus(com.mk.a2dp.Vol.service.this);
+				am2.abandonAudioFocus(com.mk.a2dp.Volume.service.this);
 				am2.setMode(AudioManager.MODE_NORMAL);
 				if (musicWasPlaying) {
 					new CountDownTimer(1000, 6000) {

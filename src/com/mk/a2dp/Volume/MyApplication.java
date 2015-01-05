@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import android.app.Application;
 import android.util.Log;

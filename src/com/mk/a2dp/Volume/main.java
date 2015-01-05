@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -103,17 +103,17 @@ public class main extends Activity {
 			return true;
 
 		case R.id.Exit:
-			stopService(new Intent(com.mk.a2dp.Vol.main.this, service.class));
-			com.mk.a2dp.Vol.main.this.finish();
+			stopService(new Intent(com.mk.a2dp.Volume.main.this, service.class));
+			com.mk.a2dp.Volume.main.this.finish();
 			return true;
 
 		case R.id.packages:
-			Intent p = new Intent(com.mk.a2dp.Vol.main.this, PackagesChooser.class);
+			Intent p = new Intent(com.mk.a2dp.Volume.main.this, PackagesChooser.class);
 			startActivity(p);
 			return true;
 
 		case R.id.prefs: // set preferences
-			Intent j = new Intent(com.mk.a2dp.Vol.main.this, Preferences.class);
+			Intent j = new Intent(com.mk.a2dp.Volume.main.this, Preferences.class);
 			startActivity(j);
 			return true;
 
@@ -178,7 +178,7 @@ public class main extends Activity {
 
 		res = getResources();
 		setContentView(R.layout.main);
-		ComponentName comp = new ComponentName("com.mk.a2dp.Vol", "main");
+		ComponentName comp = new ComponentName("com.mk.a2dp.Volume", "main");
 		PackageInfo pinfo;
 		String ver = null;
 		try {
@@ -251,7 +251,7 @@ public class main extends Activity {
 
 		// this reciever is used to tell this main activity about devices
 		// connecting and disconnecting.
-		IntentFilter filter5 = new IntentFilter("com.mk.a2dp.Vol.main.RELOAD_LIST");
+		IntentFilter filter5 = new IntentFilter("com.mk.a2dp.Volume.main.RELOAD_LIST");
 		this.registerReceiver(mReceiver5, filter5);
 
 		IntentFilter filter6 = new IntentFilter("a2dp.vol.preferences.UPDATED");
@@ -281,7 +281,7 @@ public class main extends Activity {
 			// will report when the service has
 			// started and toggle button text
 
-			startService(new Intent(com.mk.a2dp.Vol.main.this, service.class));
+			startService(new Intent(com.mk.a2dp.Volume.main.this, service.class));
 			if (enableTTS) {
 				// Fire off an intent to check if a TTS engine is installed
 				Intent checkIntent = new Intent();
@@ -325,7 +325,7 @@ public class main extends Activity {
 				}
 
 				android.app.AlertDialog.Builder builder = new AlertDialog.Builder(
-						com.mk.a2dp.Vol.main.this);
+						com.mk.a2dp.Volume.main.this);
 				builder.setTitle(bt.toString());
 				final String car = bt.toString();
 				String mesg;
@@ -414,7 +414,7 @@ public class main extends Activity {
 				final btDevice bt = vec.get(position);
 				final btDevice bt2 = myDB.getBTD(bt.mac);
 				android.app.AlertDialog.Builder builder = new AlertDialog.Builder(
-						com.mk.a2dp.Vol.main.this);
+						com.mk.a2dp.Volume.main.this);
 				builder.setTitle(bt.toString());
 				builder.setMessage(bt2.desc1 + "\n" + bt2.desc2 + "\n"
 						+ bt2.mac );
@@ -429,7 +429,7 @@ public class main extends Activity {
 						});
 				builder.setNeutralButton(R.string.Edit, new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-						Intent i = new Intent(com.mk.a2dp.Vol.main.this,
+						Intent i = new Intent(com.mk.a2dp.Volume.main.this,
 								EditDevice.class);
 						i.putExtra("btd", bt.mac);
 						startActivityForResult(i, EDITED_DATA);
@@ -455,15 +455,15 @@ public class main extends Activity {
 					fs.read(buff);
 					fs.close();
 					String st = new String(buff).trim();
-					Toast.makeText(com.mk.a2dp.Vol.main.this, st, Toast.LENGTH_LONG)
+					Toast.makeText(com.mk.a2dp.Volume.main.this, st, Toast.LENGTH_LONG)
 							.show();
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(st)));
 				} catch (FileNotFoundException e) {
-					Toast.makeText(com.mk.a2dp.Vol.main.this, R.string.NoData,
+					Toast.makeText(com.mk.a2dp.Volume.main.this, R.string.NoData,
 							Toast.LENGTH_LONG).show();
 					Log.e(LOG_TAG, "error" + e.getMessage());
 				} catch (IOException e) {
-					Toast.makeText(com.mk.a2dp.Vol.main.this, "Some IO issue",
+					Toast.makeText(com.mk.a2dp.Volume.main.this, "Some IO issue",
 							Toast.LENGTH_LONG).show();
 					Log.e(LOG_TAG, "error" + e.getMessage());
 				}
@@ -478,10 +478,10 @@ public class main extends Activity {
 			public void onClick(View v) {
 
 				if (servrun) {
-					stopService(new Intent(com.mk.a2dp.Vol.main.this, service.class));
+					stopService(new Intent(com.mk.a2dp.Volume.main.this, service.class));
 
 				} else {
-					startService(new Intent(com.mk.a2dp.Vol.main.this, service.class));
+					startService(new Intent(com.mk.a2dp.Volume.main.this, service.class));
 
 				}
 			}
@@ -491,7 +491,7 @@ public class main extends Activity {
 
 			public void onTick(long millisUntilFinished) {
 				try {
-					if (com.mk.a2dp.Vol.service.run) {
+					if (com.mk.a2dp.Volume.service.run) {
 						servrun = true;
 						serv.setText(R.string.StopService);
 					} else {
@@ -507,7 +507,7 @@ public class main extends Activity {
 
 			public void onFinish() {
 				try {
-					if (com.mk.a2dp.Vol.service.run) {
+					if (com.mk.a2dp.Volume.service.run) {
 						servrun = true;
 						serv.setText(R.string.StopService);
 						getConnects();
@@ -532,7 +532,7 @@ public class main extends Activity {
 
 	private void getConnects() {
 		if (servrun) {
-			connects = com.mk.a2dp.Vol.service.connects;
+			connects = com.mk.a2dp.Volume.service.connects;
 		} else
 			connects = 0;
 	}
@@ -613,11 +613,11 @@ public class main extends Activity {
 			i.setData(Uri.parse(st));
 			startActivity(i);
 		} catch (FileNotFoundException e) {
-			Toast.makeText(com.mk.a2dp.Vol.main.this, R.string.NoData,
+			Toast.makeText(com.mk.a2dp.Volume.main.this, R.string.NoData,
 					Toast.LENGTH_LONG).show();
 			Log.e(LOG_TAG, "error" + e.getMessage());
 		} catch (IOException e) {
-			Toast.makeText(com.mk.a2dp.Vol.main.this, "Some IO issue",
+			Toast.makeText(com.mk.a2dp.Volume.main.this, "Some IO issue",
 					Toast.LENGTH_LONG).show();
 			Log.e(LOG_TAG, "error" + e.getMessage());
 		}
@@ -638,13 +638,13 @@ public class main extends Activity {
 		 * btDevice bt3 = new btDevice(); bt3.setBluetoothDevice("Device 1",
 		 * "Porsche", "00:22:33:44:55:66:77", 15); i = 1; btDevice btx =
 		 * myDB.getBTD(bt3.mac); if(btx.mac == null) {
-		 * com.mk.a2dp.Vol.main.this.myDB.insert(bt3); vec.add(bt3); } else
+		 * com.mk.a2dp.Volume.main.this.myDB.insert(bt3); vec.add(bt3); } else
 		 * vec.add(btx);
 		 * 
 		 * btDevice bt4 = new btDevice();
 		 * bt4.setBluetoothDevice("Motorola T605", "Jaguar",
 		 * "33:44:55:66:77:00:22", 14); btDevice bty = myDB.getBTD(bt4.mac); i =
-		 * 2; if(bty.mac == null) { com.mk.a2dp.Vol.main.this.myDB.insert(bt4);
+		 * 2; if(bty.mac == null) { com.mk.a2dp.Volume.main.this.myDB.insert(bt4);
 		 * vec.add(bt4); } else vec.add(bty);
 		 * 
 		 * List<String> names = this.myDB.selectAll(); StringBuilder sb = new
@@ -663,7 +663,7 @@ public class main extends Activity {
 			btDevice fbt2 = myDB.getBTD(fbt.mac);
 			if (fbt2.mac == null) {
 				fbt.setIcon(R.drawable.car2);
-				com.mk.a2dp.Vol.main.this.myDB.insert(fbt);
+				com.mk.a2dp.Volume.main.this.myDB.insert(fbt);
 				vec.add(fbt);
 			} else
 				vec.add(fbt2);
@@ -681,7 +681,7 @@ public class main extends Activity {
 			if (fbt2.mac == null) {
 				fbt.setGetLoc(false);
 				fbt.setIcon(R.drawable.usb);
-				com.mk.a2dp.Vol.main.this.myDB.insert(fbt);
+				com.mk.a2dp.Volume.main.this.myDB.insert(fbt);
 				vec.add(fbt);
 			} else
 				vec.add(fbt2);
@@ -699,7 +699,7 @@ public class main extends Activity {
 			if (fbt2.mac == null) {
 				fbt.setGetLoc(false);
 				fbt.setIcon(R.drawable.jack);
-				com.mk.a2dp.Vol.main.this.myDB.insert(fbt);
+				com.mk.a2dp.Volume.main.this.myDB.insert(fbt);
 				vec.add(fbt);
 			} else
 				vec.add(fbt2);
@@ -718,7 +718,7 @@ public class main extends Activity {
 			if (fbt2.mac == null) {
 				fbt.setGetLoc(false);
 				fbt.setIcon(R.drawable.usb);
-				com.mk.a2dp.Vol.main.this.myDB.insert(fbt);
+				com.mk.a2dp.Volume.main.this.myDB.insert(fbt);
 				vec.add(fbt);
 			} else
 				vec.add(fbt2);
@@ -858,7 +858,7 @@ public class main extends Activity {
 				}else{
 					// missing data, install it
 					android.app.AlertDialog.Builder builder = new AlertDialog.Builder(
-							com.mk.a2dp.Vol.main.this);
+							com.mk.a2dp.Volume.main.this);
 					builder.setTitle(getString(R.string.app_name));
 					builder.setPositiveButton(R.string.Yes,
 							new OnClickListener() {
@@ -915,12 +915,12 @@ public class main extends Activity {
 			for (int i = 0; i < test; i++) {
 				lstring[i] = vec.get(i).toString();
 				if (connects > 0 && servrun) {
-					for (int j = 0; j < com.mk.a2dp.Vol.service.btdConn.length; j++) {
-						if (com.mk.a2dp.Vol.service.btdConn[j] != null)
+					for (int j = 0; j < com.mk.a2dp.Volume.service.btdConn.length; j++) {
+						if (com.mk.a2dp.Volume.service.btdConn[j] != null)
 							if (vec.get(i)
 									.getMac()
 									.equalsIgnoreCase(
-											com.mk.a2dp.Vol.service.btdConn[j]
+											com.mk.a2dp.Volume.service.btdConn[j]
 													.getMac()))
 								lstring[i] += " **";
 					}
@@ -931,12 +931,12 @@ public class main extends Activity {
 
 			// Toast.makeText(this, "No data", Toast.LENGTH_LONG);
 		}
-		com.mk.a2dp.Vol.main.this.ladapt = new ArrayAdapter<String>(application,
+		com.mk.a2dp.Volume.main.this.ladapt = new ArrayAdapter<String>(application,
 				resourceID, lstring);
-		com.mk.a2dp.Vol.main.this.lvl.setAdapter(ladapt);
-		com.mk.a2dp.Vol.main.this.ladapt.notifyDataSetChanged();
-		com.mk.a2dp.Vol.main.this.lvl.invalidateViews();
-		com.mk.a2dp.Vol.main.this.lvl.forceLayout();
+		com.mk.a2dp.Volume.main.this.lvl.setAdapter(ladapt);
+		com.mk.a2dp.Volume.main.this.ladapt.notifyDataSetChanged();
+		com.mk.a2dp.Volume.main.this.lvl.invalidateViews();
+		com.mk.a2dp.Volume.main.this.lvl.forceLayout();
 	}
 
 	// this just loads the bluetooth device array from the database
@@ -1029,7 +1029,7 @@ public class main extends Activity {
 		public void onReceive(Context arg0, Intent arg1) {
 			// toggle the service button depending on the state of the service
 			try {
-				if (com.mk.a2dp.Vol.service.run) {
+				if (com.mk.a2dp.Volume.service.run) {
 					servrun = true;
 					serv.setText(R.string.StopService);
 					getConnects();

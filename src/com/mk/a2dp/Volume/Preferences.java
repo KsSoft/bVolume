@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +21,7 @@ public class Preferences extends PreferenceActivity {
 	@Override
 	public void onContentChanged() {
 		// stop the service while changes are made
-		stopService(new Intent(com.mk.a2dp.Vol.Preferences.this, service.class));
+		stopService(new Intent(com.mk.a2dp.Volume.Preferences.this, service.class));
 		super.onContentChanged();
 	}
 
@@ -40,7 +40,7 @@ public class Preferences extends PreferenceActivity {
 		// Commit the edits!
 		editor.commit();
 		// restart the service
-		startService(new Intent(com.mk.a2dp.Vol.Preferences.this, service.class));
+		startService(new Intent(com.mk.a2dp.Volume.Preferences.this, service.class));
 		// Tell the world we updated preferences
 		this.application = (MyApplication) this.getApplication();
 		final String IRun = "a2dp.vol.preferences.UPDATED";

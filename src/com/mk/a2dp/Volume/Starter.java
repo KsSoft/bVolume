@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.content.SharedPreferences;
 public class Starter extends BroadcastReceiver {
 	SharedPreferences preferences;
 
-	public static final String PREFS_NAME = "com.mk.a2dp.Vol_preferences";
+	public static final String PREFS_NAME = "com.mk.a2dp.Volume_preferences";
 
 	@Override
 	public void onReceive(Context context, Intent arg1) {

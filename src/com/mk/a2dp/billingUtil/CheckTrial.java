@@ -28,8 +28,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.Patterns;
 
-import com.mk.a2dp.Vol.R;
-import com.mk.a2dp.Vol.main;
+import com.mk.a2dp.Volume.R;
+import com.mk.a2dp.Volume.main;
 
 import dalvik.system.PathClassLoader;
 

@@ -1,4 +1,4 @@
-package com.mk.a2dp.Vol;
+package com.mk.a2dp.Volume;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class Access extends AccessibilityService {
 		 event.getPackageName() + " time: " + event.getEventTime(), Toast.LENGTH_LONG).show();*/
 		ApplicationInfo appInfo;
 		PackageManager pm = getPackageManager();
-		if (event.getEventTime() > lastWhen && com.mk.a2dp.Vol.service.talk) {
+		if (event.getEventTime() > lastWhen && com.mk.a2dp.Volume.service.talk) {
 
 			String str = "";
 			String pack = (String) event.getPackageName();
@@ -213,7 +213,7 @@ public class Access extends AccessibilityService {
 			// make sure something is connected so the text reader is active
 			int connected = 0;
 			try {
-				connected = com.mk.a2dp.Vol.service.connects;
+				connected = com.mk.a2dp.Volume.service.connects;
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
